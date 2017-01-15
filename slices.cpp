@@ -156,11 +156,11 @@ void Slices::get_intersect(float *a, float *b, float *out, float z, int _case) {
 	float s = (s_a) / (s_a - s_b);
 	
 	memcpy((void *)out, (void *)a, (size_t)12);
-	scale(out, -1);
-	add(b, out, out);
+	scale_vec(out, -1);
+	add_vec(b, out, out);
 	
-	scale(out, s);
-	add(a, out, out);
+	scale_vec(out, s);
+	add_vec(a, out, out);
 
 }
 

@@ -7,7 +7,6 @@
 typedef struct lineSeg {
 	float start[3];
 	float end[3];
-	lineSeg *next;
 } lineSeg;
 
 class Slices {

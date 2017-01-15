@@ -44,7 +44,7 @@ void Slices::make_slices(Mesh *_mesh, float _slice_thickness) {
 		for (int j = 0; j < num_facets; j++) {
 			lineSeg *curr = get_lineSeg(j, z);
 			if (curr) {
-				planes[i].push_back(curr);
+				slice_lineSegs[i].push_back(curr);
 				added = true;
 			}
 		}
@@ -54,11 +54,11 @@ void Slices::make_slices(Mesh *_mesh, float _slice_thickness) {
 	// Get contours for each plane
 	for (int i = 0; i < num_planes; i++) {
 		
-		int size = (int) planes[i].size();	
+		int size = (int) slice_lineSegs[i].size();	
 		
 		for (int j = 0; j < size; j++) {
-			Point start = Point( ((int)planes[i][j]->start[0]) + 300, ((int)planes[i][j]->start[1]) + 300);
-			Point end = Point( ((int)planes[i][j]->end[0]) + 300, ((int)planes[i][j]->end[1]) + 300);
+			Point start = Point( ((int)slice_lineSegs[i][j]->start[0]) + 300, ((int)slice_lineSegs[i][j]->start[1]) + 300);
+			Point end = Point( ((int)slice_lineSegs[i][j]->end[0]) + 300, ((int)slice_lineSegs[i][j]->end[1]) + 300);
 			line(slice_images[i], start, end, Scalar(255,0,0), 1);
 		}
 
@@ -193,10 +193,9 @@ void Slices::init_planes() {
 	
 	for (int i = 0; i < num_planes; i++) {
 		vector<lineSeg *> curr_plane;
-		planes.push_back(curr_plane);
+		slice_lineSegs.push_back(curr_plane);
 	}
 
-	assert(planes.size() == num_planes);
 }
 
 void Slices::init_images() {
@@ -228,9 +227,9 @@ void Slices::add_vec(float *u, float *v, float *w) {
 Slices::~Slices() {
 	
 	for (int i = 0; i < num_planes; i++) {
-		int size = (int) planes[i].size();
+		int size = (int) slice_lineSegs[i].size();
 		for (int j = 0; j < size; j++) {
-			delete planes[i][j];
+			delete slice_lineSegs[i][j];
 		}
 	}
 

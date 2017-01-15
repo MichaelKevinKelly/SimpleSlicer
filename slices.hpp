@@ -27,7 +27,7 @@ class Slices {
 		void add_vec(float *u, float *v, float *w);
 		Mesh *my_mesh;
 		std::vector<cv::Mat> slice_images;
-		std::vector< std::vector<lineSeg *> > planes;
+		std::vector< std::vector<lineSeg *> > slice_lineSegs;
 		float dimensions[3][2];
 		float normal[3];
 		int num_planes;

@@ -21,12 +21,10 @@ void render(Slices *my_slices) {
 	int i = 0;
 	while(i < 10) {
 		for (int i = 0; i < num_planes; i++) {
-			if (my_slices->planes[i].size() > 0) {
-				Mat temp = base.clone();
-				drawContours(temp, contours[i], -1, Scalar(0,255,0), contour_thickness);
-				imshow("Slices", temp);
-				waitKey(15);	
-			}
+			Mat temp = base.clone();
+			drawContours(temp, contours[i], -1, Scalar(0,255,0), contour_thickness);
+			imshow("Slices", temp);
+			waitKey(15);	
 		}
 		i++;	
 	}

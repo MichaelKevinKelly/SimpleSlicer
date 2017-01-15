@@ -37,17 +37,17 @@ int main(int argc, char *argv[]) {
 	
 	string filename = string(argv[1]);
 
-	Mesh *my_mesh = new Mesh();
-	assert(my_mesh->load_STL(filename));
-	my_mesh->scale_mesh(mesh_scale);
+	printf("Loading mesh...\n");
+	Mesh m;
+	assert(m.load_STL(filename));
+	m.scale_mesh(mesh_scale);
 	
-	Slices *my_slices = new Slices();
-	my_slices->make_slices(my_mesh, slice_thickness);
+	printf("Slicing...\n");
+	Slices s;
+	s.make_slices(&m, slice_thickness);
 
-	render(my_slices);
-
-	delete my_mesh;
-	delete my_slices;
+	printf("Rendering...\n");
+	render(&s);
 	
 }
 

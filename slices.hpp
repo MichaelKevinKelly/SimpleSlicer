@@ -14,10 +14,10 @@ class Slices {
 	public:
 		Slices();
 		void make_slices(Mesh *_mesh, float _slice_thickness);
+		int get_num_planes();
 		std::vector< std::vector< std::vector<cv::Point> > > contours;
 		std::vector<cv::Mat> slice_images;
 		std::vector< std::vector<lineSeg *> > planes;
-		int get_num_planes();
 		~Slices();
 	private:
 		void init_planes();
@@ -29,10 +29,10 @@ class Slices {
 		void scale_vec(float *v, float s);
 		void add_vec(float *u, float *v, float *w);
 		Mesh *my_mesh;
-		int num_planes;
 		float dimensions[3][2];
-		float slice_thickness;
 		float normal[3];
+		int num_planes;
+		float slice_thickness;
 };
 
 #endif

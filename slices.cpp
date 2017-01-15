@@ -228,7 +228,7 @@ void Slices::add_vec(float *u, float *v, float *w) {
 Slices::~Slices() {
 	
 	for (int i = 0; i < num_planes; i++) {
-		int size = planes[num_planes].size();
+		int size = (int) planes[i].size();
 		for (int j = 0; j < size; j++) {
 			delete planes[i][j];
 		}

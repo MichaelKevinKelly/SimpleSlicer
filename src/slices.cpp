@@ -254,7 +254,6 @@ void Slices::prune_contours() {
 			double currArea = abs(contourArea(contours[i][j], false));
 
 			if (currArea < (mat_dim/MIN_AREA_FRAC)) {
-			 	cout << "contour erased (area)...\n";
 			 	contours[i].erase(contours[i].begin() + j);
 			 	contour_bounds[i].erase(contour_bounds[i].begin() + j);
 			 	j--;
@@ -267,7 +266,6 @@ void Slices::prune_contours() {
 						abs(contour_bounds[i][j]->y[0] - contour_bounds[i][k]->y[0]) < BOUNDARY_EPSILON
 					) {
 						if ((currArea - contourArea(contours[i][k], false)) < (mat_dim/EPSILON_FRAC)) {
-							cout << "contour erased (overlap	)...\n";
 							contours[i].erase(contours[i].begin() + k);
 							contour_bounds[i].erase(contour_bounds[i].begin() + k);
 							k--;

@@ -10,7 +10,7 @@ Polypath::Polypath() { num_nodes = -1; }
 *
 *	A polypath object generates a path through the polygons in a given slice.
 *	Treats each polygon as a node in a graph, uses a heuristic to gauge pairwise
-*	distances between each polygon and to generate a complete, directed graph representing
+*	distances between each polygon and to generate a complete graph representing
 *	the slice. Polypath implements the nearest neighbor algorithm to quickly find a (not necessarily
 *	optimal) tour.
 *

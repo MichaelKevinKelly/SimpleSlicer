@@ -170,7 +170,7 @@ void Polypath::generate_graph(vector<Polygon*> *polys) {
 *	Min distance between two polygons is calculated as follows: First, find min distance between
 *	each corner of the bounding rectangles of each polygon. Then, find the closest point in each polygon
 *	to the corner of the bounding rect identified in the previous step. Finally, return the distance
-*	between each point identified in part 2, and store the index vertices using the int pointer args
+*	between each point identified in part 2, and store the vertices' indices using the int pointer args
 *
 */
 int Polypath::get_min_dist(Polygon *a, Polygon *b, int *a_vert_ind, int *b_vert_ind) {
